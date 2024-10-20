@@ -2,6 +2,9 @@
 
 This Chrome extension removes the "Recent Communities" section from Reddit (https://sh.reddit.com/) every time the page is loaded, providing a cleaner browsing experience. Users can enable or disable this feature through a toggle button in the extension's popup.
 
+## Download ZIP:
+- **LINK**: https://github.com/Arijit-gotsomecodes/Reddit_Recent_Remove/archive/refs/heads/main.zip
+
 ## Features
 
 - **Toggle Option**: Easily enable or disable the removal of the recent pages section.
@@ -36,4 +39,6 @@ Contributions are welcome! If you'd like to contribute to this project, please f
 2. Create a new branch for your feature or bug fix.
 3. Commit your changes and push to your branch.
 4. Open a pull request.
+
+
 
