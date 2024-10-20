@@ -8,7 +8,6 @@ This Chrome extension removes the "Recent Communities" section from Reddit (http
 - **Automatic Removal**: The extension automatically removes the section upon page load.
 - **Lightweight**: Minimal impact on browser performance.
 
-## Installation
 
 ### Manual Installation
 
@@ -25,12 +24,12 @@ This Chrome extension removes the "Recent Communities" section from Reddit (http
 
 5. Test the Extension Open Reddit in a new tab. Click on the extension icon to open the popup, toggle the checkbox to enable or disable the feature, and refresh the page to see the changes.
 
-**Usage**
+### Usage
 1. Click the extension icon in the Chrome toolbar.
 2. Use the toggle button to enable or disable the removal of the "Recent Communities" section.
 3. Refresh the Reddit page to apply your changes.
 
-**Contributing**
+### Contributing
 Contributions are welcome! If you'd like to contribute to this project, please follow these steps:
 
 1. Fork the repository.
