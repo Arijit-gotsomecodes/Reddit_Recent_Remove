@@ -3,22 +3,115 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Toggle Recent Pages</title>
+    <title>UN-recent Reddit</title>
     <style>
         body {
-            width: 200px;
-            padding: 10px;
-            font-family: Arial, sans-serif;
+            width: 300px;
+            padding: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
-        #toggle {
-            margin-top: 10px;
+
+        h3 {
+            margin-bottom: 20px;
+            color: #333;
+            font-size: 2.2em;
+        }
+
+        .toggle-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #fff;
+            padding: 10px;
+            border-radius: 20px;
+            width: 100%;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            font-size: 1.3em;
+            color: #555;
+            margin-right: 7px;
+        }
+
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 24px;
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            border-radius: 34px;
+            transition: 0.4s;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 18px;
+            width: 18px;
+            left: 4px;
+            bottom: 3px;
+            background-color: white;
+            border-radius: 50%;
+            transition: 0.4s;
+        }
+
+        input:checked + .slider {
+            background-color: #4caf50;
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+
+        .footer {
+            margin-top: 20px;
+            font-size: 0.9em;
+            text-align: center;
+        }
+
+        .footer a {
+            color: #333;
+            text-decoration: none;
         }
     </style>
 </head>
 <body>
     <h3>Remove Recent Pages</h3>
-    <label for="toggle">Enabled</label>
-    <input type="checkbox" id="toggle">
-    <script src="popup.js"></script>
+    <div class="toggle-container">
+        <label for="toggle">Toggle</label>
+        <label class="switch">
+            <input type="checkbox" id="toggle">
+            <span class="slider"></span>
+        </label>
+    </div>
+
+    <div class="footer">
+        <p>Made with 💖 by Arijit</p>
+        <p><a href="https://github.com/Arijit-gotsomecodes/Reddit_Recent_Remove" target="_blank">GitHub Repo</a></p>
+    </div>
+
+    <script src="popup.js"></script> <!-- External script reference -->
 </body>
 </html>

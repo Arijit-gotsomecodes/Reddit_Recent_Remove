@@ -36,3 +36,11 @@ observer.observe(document.body, {
     childList: true,
     subtree: true,
 });
+
+// Listen for messages from popup.js
+chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+    if (request.action === 'refreshPage') {
+        // Instead of reloading the page, just re-run the removeRecentPages function
+        removeRecentPages();
+    }
+});
