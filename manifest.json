@@ -1,7 +1,7 @@
 {
     "manifest_version": 3,
     "name": "UN-Reccent",
-    "version": "1.1.1",
+    "version": "1.1.2",
     "description": "Automatically removes the 'recent communities' section from Reddit.",
     "permissions": [
       "activeTab",
@@ -13,7 +13,7 @@
     },
     "content_scripts": [
       {
-        "matches": ["https://sh.reddit.com/*"],
+        "matches": ["https://www.reddit.com/*"],
         "js": ["content.js"]
       }
     ],
@@ -26,7 +26,7 @@
       }
     },
     "host_permissions": [
-      "https://sh.reddit.com/*"
+      "https://www.reddit.com/*"
     ]
   }
   
