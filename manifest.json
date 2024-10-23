@@ -1,7 +1,7 @@
 {
     "manifest_version": 3,
     "name": "UN-Reccent",
-    "version": "1.1.2",
+    "version": "2.0.0",
     "description": "Automatically removes the 'recent communities' section from Reddit.",
     "permissions": [
       "activeTab",

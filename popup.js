@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log('Toggle state saved:', isEnabled);
         });
 
-        // Send a message to content.js to refresh the page
+        // Send a message to content.js to refresh the visibility
         chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
             chrome.tabs.sendMessage(tabs[0].id, { action: 'refreshPage' });
         });

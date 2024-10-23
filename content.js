@@ -1,34 +1,27 @@
-// Function to remove the 'Recent Communities' section and related elements
-function removeRecentPages() {
-    chrome.storage.sync.get(['enabled'], (result) => {
-        if (result.enabled) {
-            // Remove <reddit-recent-pages> and the <hr> below it
-            const recentPages = document.querySelector('reddit-recent-pages');
-            if (recentPages) {
-                recentPages.remove();
-            }
-
-            const hrElement = document.querySelector('reddit-recent-pages + hr.w-100.my-sm.border-neutral-border-weak');
-            if (hrElement) {
-                hrElement.remove();
-            }
-
-            // Remove <faceplate-loader> that loads the recent section
-            const faceplateLoader = document.querySelector('faceplate-loader[name="LeftNavRecentSection_wrMMJh"]');
-            if (faceplateLoader) {
-                faceplateLoader.remove();
-            }
-        }
-    });
+// Function to toggle the visibility of the 'Recent Communities' section
+function toggleRecentPages(shouldShow) {
+    const recentPages = document.querySelector('reddit-recent-pages');
+    if (recentPages) {
+        recentPages.style.display = shouldShow ? 'block' : 'none'; // Show or hide based on the toggle state
+    }
 }
 
-// Initial run
-removeRecentPages();
+// Load the current state and set visibility accordingly
+chrome.storage.sync.get(['enabled'], (result) => {
+    const isEnabled = result.enabled !== undefined ? result.enabled : true; // Default to true
+    toggleRecentPages(isEnabled); // Set initial visibility
+});
 
 // Use MutationObserver to handle dynamic content loading
 const observer = new MutationObserver((mutations) => {
     mutations.forEach(() => {
-        removeRecentPages();
+        const recentPages = document.querySelector('reddit-recent-pages');
+        if (recentPages) {
+            chrome.storage.sync.get(['enabled'], (result) => {
+                const isEnabled = result.enabled !== undefined ? result.enabled : true; // Default to true
+                toggleRecentPages(isEnabled); // Update visibility based on toggle state
+            });
+        }
     });
 });
 
@@ -40,7 +33,10 @@ observer.observe(document.body, {
 // Listen for messages from popup.js
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     if (request.action === 'refreshPage') {
-        // Instead of reloading the page, just re-run the removeRecentPages function
-        removeRecentPages();
+        // Re-check the toggle state and update visibility
+        chrome.storage.sync.get(['enabled'], (result) => {
+            const isEnabled = result.enabled !== undefined ? result.enabled : true; // Default to true
+            toggleRecentPages(isEnabled);
+        });
     }
 });
